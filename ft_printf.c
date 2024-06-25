@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aburga-g <aburga-g@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: aburga-g < aburga-g@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 13:44:49 by aburga-g          #+#    #+#             */
-/*   Updated: 2024/06/24 13:44:49 by aburga-g         ###   ########.fr       */
+/*   Created: 2024/06/25 16:52:22 by aburga-g          #+#    #+#             */
+/*   Updated: 2024/06/25 19:06:23 by aburga-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@ int	ft_formato(va_list pa, char sign)
 {
 	if (sign == 'c')
 		return (ft_putchar(va_arg(pa, int)));
+	if (sign == 's')
+		return (ft_putstr(va_arg(pa, char *)));
+	if (sign == 'i')
+		return (ft_putnbr(va_arg(pa, int)));
+	if (sign == '%')
+		return (ft_putchar('%'));
 	return (0);
 }
 
@@ -37,5 +43,5 @@ int	ft_printf(const char *txt, ...)
 		i++;
 	}
 	va_end(pa);
-	return(cont);
+	return (cont);
 }

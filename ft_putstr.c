@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aburga-g < aburga-g@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 18:00:14 by aburga-g          #+#    #+#             */
-/*   Updated: 2024/06/25 10:57:57 by aburga-g         ###   ########.fr       */
+/*   Created: 2024/06/25 11:49:21 by aburga-g          #+#    #+#             */
+/*   Updated: 2024/06/25 17:25:52 by aburga-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar(int c)
+int	ft_putstr(char *str)
 {
-	write(1, &c, 1);
-	return (1);
+	int	i;
+
+	if (!str)
+		str = "(null)";
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i += ft_putchar(str[i]);
+	}
+	return (i);
 }
