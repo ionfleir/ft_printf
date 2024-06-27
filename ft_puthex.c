@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aburga-g < aburga-g@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/22 15:38:16 by aburga-g          #+#    #+#             */
-/*   Updated: 2024/06/27 19:23:25 by aburga-g         ###   ########.fr       */
+/*   Created: 2024/06/27 18:15:37 by aburga-g          #+#    #+#             */
+/*   Updated: 2024/06/27 19:23:05 by aburga-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
+int	ft_puthex(unsigned long long n, char c)
+{
+	int		cont;
+	char	*min;
+	char	*may;
 
-int	ft_printf(const char *txt, ...);
-
-/*funciones a utilizar*/
-
-int	ft_putchar(int c);
-int	ft_putstr(char *s);
-int	ft_putnbr(int c);
-int	ft_puthex(unsigned long long n, char c);
-
-#endif
+	cont = 0;
+	min = "0123456789abcdef";
+	may = "0123456789ABCDEF";
+	if (n >= 16)
+		cont += ft_puthex(n / 16, c);
+	if (n == 'x')
+		cont += ft_putchar(min[n % 16]);
+	else if (n == 'X')
+		cont += ft_putchar(may[n % 16]);
+	return (cont);
+}
