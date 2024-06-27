@@ -6,7 +6,7 @@
 /*   By: aburga-g < aburga-g@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 16:52:22 by aburga-g          #+#    #+#             */
-/*   Updated: 2024/06/25 19:06:23 by aburga-g         ###   ########.fr       */
+/*   Updated: 2024/06/26 16:11:31 by aburga-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_formato(va_list pa, char sign)
 		return (ft_putchar(va_arg(pa, int)));
 	if (sign == 's')
 		return (ft_putstr(va_arg(pa, char *)));
-	if (sign == 'i')
+	if (sign == 'i' || sign == 'd')
 		return (ft_putnbr(va_arg(pa, int)));
 	if (sign == '%')
 		return (ft_putchar('%'));
